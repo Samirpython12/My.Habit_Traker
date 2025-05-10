@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Habit List</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for habit in habits %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ habit.name }}</h5>
+                        <p class="card-text">Streak: <strong>{{ habit.streak }}</strong></p>
+                        <a href="{% url 'mark_done' habit.id %}" class="btn btn-primary btn-sm">Mark Done</a>
+                        <a href="{% url 'delete_habit' habit.id %}" class="btn btn-danger btn-sm ms-2">Delete</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'add_habit' %}" class="btn btn-success">Add New Habit</a>
+    </div>
+</div>
+{% endblock %}

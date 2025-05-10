@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Habit: {{ habit.name }}</h1>
+    <p>Streak: {{ habit.streak }}</p>
+
+    <a href="{% url 'habit_list' %}" class="btn btn-primary">Back to Habit List</a>
+{% endblock %}
